@@ -1,0 +1,27 @@
+Averiguar la serie de numeros primos a partir de 2, 3, 5 ...
+
+[Solo] deben ser divisibles por 1 y por si mismos
+
+
+Mariel Boher
+x % x = 0 && x % 1 = 0
+
+se hace con un for [PERO]
+
+No voy a recorrer todos los numeros previos
+
+Supongamos que tengo que ver si el 6345345345 es primo
+
+Que hago, lo intento dividir por todos los numeros primos hallados previamente.
+
+
+serie x + 1
+
+(1, 2) (2, 3)
+
+
+Esto obseciona a los matematicos tanto como la conjetura de collatz que es otro ejercicio
+
+
+
+
