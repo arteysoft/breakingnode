@@ -15,7 +15,7 @@ export let discoverNumerosPrimosEnRecursion = () => {
                 }
                 setTimeout(() => {
                     iterador(numero + 1)
-                }, 500)
+                }, 0)
                 return
             })
         }
@@ -23,7 +23,7 @@ export let discoverNumerosPrimosEnRecursion = () => {
             console.log(numero, 'NO es primo')
             setTimeout(() => {
                 iterador(numero + 1)
-            }, 500)
+            }, 0)
         }
     })(3)
 }

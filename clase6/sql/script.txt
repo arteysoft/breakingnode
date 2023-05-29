@@ -1,0 +1,4 @@
+CREATE TABLE `breakingnode`.`numerosprimos` (
+   `fecha` DATE NOT NULL ,
+   `numero` BIGINT NOT NULL )
+ENGINE = InnoDB;
