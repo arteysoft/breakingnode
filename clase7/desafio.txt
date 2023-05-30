@@ -1,0 +1,14 @@
+Nosotros tenemos una librería que crea usuarios de forma aleatorea.
+
+Crear un endpoint /inventarUsuario
+
+y cuando le damos post localhost:3000/inventarusuario que cree un alumno
+maxima: que lo inserte en mySQL para esto hay que crear el script de la tabla.
+        y cada vez que hacemos post, inventa e inserta dicho alumno
+        tener en cuenta que los post cuando son exitosos retornan el codigo 201
+
+minima: retornar por HTTP RESPONSE el alumno que ha sido inventado por la libreria.
+
+Si quieren y hay tiempo pueden crear otro endpoint que sea app.get('/alumno')
+donde busque todos los alumnos y los retorne desde la base de datos.
+

@@ -1,5 +1,36 @@
 import * as todoElDriver from 'mysql2'
 
+export let consultarTableNumerosPrimos = onFinish => {
+    let connection = todoElDriver.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'breakingnode'
+    })
+
+    connection.connect(err => {
+        if (err) {
+            onFinish(err)
+            return
+        }
+    
+        connection.query('SELECT fecha, numero FROM numerosprimos ', (err, results, fields) => {
+            if (err) {
+                onFinish(err)
+                return
+            }
+            
+            connection.end(err => {
+                if (err) {
+                    onFinish(err)
+                    return
+                }
+                onFinish(null, results)
+            })
+        })
+    })
+}
+
 export let insertarNumeroPrimoSQL = (nuevoNumero, onFinish) => {
 
     setTimeout(() => {

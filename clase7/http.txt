@@ -41,3 +41,25 @@ como es la sintaxis de HTTP
    </body>
    </html>
 
+2) Cuando creamos un api rest. Ahi la cosa cambia porque la respuesta viene ya no en HTML
+   sino en formato JSON.
+
+3) Mapa de verbos HTTP.
+
+   El GET Sirve para buscar un recurso
+   Tiene dos formas localhost:3000/persona/123551354
+                    localhost:3000/persona?apellido=Ibanes&dni=1351351
+
+   La primera forma, es para buscar un recurso que si no existe retorna
+   404 not found
+   
+   La segunda forma ?, es para buscar muchos datos que coincidan con el 
+   parametro enviado
+
+   el POST nos sirve para enviar un documento JSON nuevo
+
+   el PUT nos sirve para enviar un documento JSON que reemplaza a otro
+
+   el DELETE nos sirve para borrar un documento o documentos con algun criterio
+
+
