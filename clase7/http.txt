@@ -1,0 +1,43 @@
+----------------------------------------------------------------------------------------------------
+HTTP
+----------------------------------------------------------------------------------------------------
+
+Http es un protocolo basado en texto ASCII.
+
+Pongamos por ejemplo el numero 5 en binario es 0000 0101
+En cambio en ASCII                             0011 0101
+
+Por ejemplo el numero 125                      0111 1101
+En cambio en ASCII es                          0011 0001 - 0011 0001 - 0011 0101
+
+Justamente HTTP NO es binario, lo que tiene de ventaja es que se puede ver,
+sin necesidad de un interprete.
+
+como es la sintaxis de HTTP
+
+1) es cliente servidor
+   el cliente activa una peticion el servidor la contesta
+
+   GET / HTTP/1.1 (El GET, es uno de los verbos de HTTP)
+   Host: localhost:3000/lo que siga de la url
+   User-Agent: curl/8.0.1 (es el navegador o la app de mobile)
+   Accept: */*
+
+   Cuando el servidor contesta.
+
+   HTTP/1.1 404 Not Found (en este caso 404 indica que la url no esta asociada a un contenido)
+   Content-Type: text/html; charset=utf-8
+   Content-Length: 140 (caracteres)
+   Date: Mon, 29 May 2023 23:41:09 GMT
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+   <meta charset="utf-8">
+   <title>Error</title>
+   </head>
+   <body>
+   <pre>Cannot GET /</pre>
+   </body>
+   </html>
+
