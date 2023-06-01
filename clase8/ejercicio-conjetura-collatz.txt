@@ -1,0 +1,11 @@
+Ejercicio conjetura de collatz.
+
+La conjetura de collats es:
+
+dado un numero cualquier si le aplico el siguiente algoritmo termina siempre en 1
+
+
+if (n es impar) => n * 3 + 1
+if (n es par) => n / 2
+
+Porque se llama conjetura, porque en 100 años NO se pudo probar un teorema.
