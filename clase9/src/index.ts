@@ -7,6 +7,7 @@ import clienteHTTP from './httpcliente/index'
 import {consultarTableNumerosPrimos} from './lib/manejadorSQL'
 import levantarArchivos from './app/levantarArchivos'
 import {contar} from './ejercicios/omar/collatz1'
+import {pruebaMongo} from './app/pruebaMongo'
 
 import 'dotenv/config'
 
@@ -32,10 +33,13 @@ switch (process.argv[2]) {
         break
     case 'levantararchivos':
         levantarArchivos()
-        break;
+        break
     case 'collatz':
         contar(7)
-        break;
+        break
+    case 'pruebamongo':
+        pruebaMongo()
+        break
     default:
         console.log('Atencion, se debe enviar un parametro con la accion a seguir')
 }
