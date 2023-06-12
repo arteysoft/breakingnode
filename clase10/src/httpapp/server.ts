@@ -1,19 +1,18 @@
 import express from 'express'
+import genUsuario from '../lib/genusuario'
 import {consultarTableNumerosPrimos} from '../lib/manejadorSQL'
 
 export default () => {
 
     let app = express()
 
-    app.get('/primer', (request, response) => {
-        let respuesta = {
-            nombre: 'hola',
-            apellido: 'mundo'
-        }
+    app.use(express.json());
 
+    app.get('/inventarcliente', (request, response) => {
+        
         response            
             .status(200)
-            .send(respuesta)
+            .send(genUsuario())
     })
 
     app.get('/cliente', (request, response) => {
