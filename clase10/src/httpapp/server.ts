@@ -1,6 +1,8 @@
 import express from 'express'
 import genUsuario from '../lib/genusuario'
 import {consultarTableNumerosPrimos} from '../lib/manejadorSQL'
+import {insertOne, query as queryMongo} from '../lib/driverMongo'
+import {MongoServerError, MongoServerSelectionError} from 'mongodb'
 
 export default () => {
 
@@ -17,11 +19,24 @@ export default () => {
 
     app.get('/cliente', (request, response) => {
         /* Normalmente voy a traer los clientes por algun filtro */
-        console.log(request.query)
+        let query:any = {}
 
-        response            
-        .status(200)
-        .send([])
+        console.log(request.query)
+        if (request.query['firstName']) { query.firstName = request.query['firstName']; }
+
+        queryMongo('clientes', query)
+        .then(res => {
+            response            
+            .status(200)
+            .send(res)
+        })
+        .catch(err => {            
+            response            
+            .status(500)
+            .send()
+        })
+
+        
     })
 
     app.get('/cliente/:id', (request, response) => {
@@ -37,11 +52,33 @@ export default () => {
     app.post('/cliente', (request, response) => {
         console.log(request.body)
 
-        // Insertar el cliente en la base 
+        insertOne('clientes', request.body)
+        .then(() => {
+            response            
+                .status(201)
+                .send()
+        })
+        .catch(err => {
+            console.log(err)
 
-        response            
-        .status(201)
-        .send()
+            if (err instanceof MongoServerError) {
+                response
+                .status(400)
+                .send()
+                return
+            }
+
+            if (err instanceof MongoServerSelectionError) {
+                response            
+                .status(500)
+                .send()
+                return
+            }
+
+            response            
+                .status(500)
+                .send()
+        })
     })
 
     app.put('/cliente/:id', (request, response) => {
