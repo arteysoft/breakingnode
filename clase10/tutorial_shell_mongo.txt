@@ -1,0 +1,20 @@
+C:\opt\mongosh-1.9.1-win32-x64\bin
+
+mongosh.exe
+
+si pongo db me dice en que base esta posicionado
+
+show databases
+
+use nodebreaker_10 para posicionarme en una base
+
+show collections me va a dar la lista de las colecciones
+
+db.clientes.find() tiene como argumento un filtro que vamos a ir detallando
+
+db.nuevacoleccion.insert({id:'lalala', nombre:'cesar'})
+
+show collections
+
+db.nuevacoleccion.find({id:lalala})
+
