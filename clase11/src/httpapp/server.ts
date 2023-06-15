@@ -3,12 +3,20 @@ import genUsuario from '../lib/genusuario'
 import {consultarTableNumerosPrimos} from '../lib/manejadorSQL'
 import {insertOne, query as queryMongo} from '../lib/driverMongo'
 import {MongoServerError, MongoServerSelectionError} from 'mongodb'
+import clienteRouter from './routes/cliente'
+import autenticacionRouter from './middleware/autenticacion'
 
 export default () => {
 
     let app = express()
 
     app.use(express.json());
+    app.use('/hola', clienteRouter)    
+    app.use((request, response, next) => {
+        console.log('ACA REALIZO UNA CONFIGURACION ...')
+        setTimeout(next, 1)
+    })
+    app.use(autenticacionRouter())
 
     app.get('/inventarcliente', (request, response) => {
         
@@ -39,14 +47,28 @@ export default () => {
         
     })
 
-    app.get('/cliente/:id', (request, response) => {
+    app.get('/cliente/:id', async (request, response) => {
         /* Aca lo importante es que si el id NO existe ? se debe retornar 404
         */
         console.log(request.params.id)
 
-        response            
-        .status(404)
-        .send()
+        try {
+            let res = await queryMongo('clientes', {id:request.params.id})
+            if (res.length === 0) {
+                response            
+                .status(404)
+                .send()
+                return
+            }
+            response            
+            .status(200)
+            .send(res[0])
+        }
+        catch(err) {
+            response            
+            .status(500)
+            .send()
+        }
     })
 
     app.post('/cliente', (request, response) => {

@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import crearArchivos from './app/crearArchivos'
 import {esPrimo} from './ejercicio/commons/commons'
 import {discoverNumerosPrimosEnRecursion} from './app/numerosPrimos'
@@ -8,8 +10,6 @@ import {consultarTableNumerosPrimos} from './lib/manejadorSQL'
 import levantarArchivos from './app/levantarArchivos'
 import {contar} from './ejercicios/omar/collatz1'
 import {pruebaMongo} from './app/pruebaMongo'
-
-import 'dotenv/config'
 
 switch (process.argv[2]) {
     case 'creararchivos':

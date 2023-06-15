@@ -1,0 +1,31 @@
+Como utilizar un middleware que es y como hacer uno propio
+
+1) app.use es la funcion que me permite incluir un middleware
+2) Recordar que el middleware se ejecuta por cada peticion y en orden de aparicion
+3) es una capa que la teoria nos dice que es un filtro o (cadena de responsabilidad)
+4) para hacer un middleware propio hay que
+
+   crear un archivo hora.ts
+   export default () => (request, response, next) => {
+      // Segun el caso, puedo llamar a next, o bien puedo hacer response.status(zzz).send(zzz)
+   }
+  
+   para usar hora.ts 
+
+   import horaMiddleware from './middleware/hora'
+
+   app.use(horaMiddleware())
+   
+5) para utilizar el middleware de route es app.use('/url', elRouter)
+   en un archivo externo vamos a hacer
+
+   export default express.Router()
+   .use('', (request, response, next) => {
+       console.log('Pasando por el middleware de hola')
+       next()
+   })
+   .get('', (request, response) => {
+       response.status(200).send({saludo:'hola'})
+   })
+
+   
