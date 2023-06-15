@@ -5,12 +5,14 @@ import {insertOne, query as queryMongo} from '../lib/driverMongo'
 import {MongoServerError, MongoServerSelectionError} from 'mongodb'
 import clienteRouter from './routes/cliente'
 import autenticacionRouter from './middleware/autenticacion'
+import horaMiddleware from './middleware/hora'
 
 export default () => {
 
     let app = express()
 
     app.use(express.json());
+    app.use(horaMiddleware)
     app.use('/hola', clienteRouter)    
     app.use((request, response, next) => {
         console.log('ACA REALIZO UNA CONFIGURACION ...')

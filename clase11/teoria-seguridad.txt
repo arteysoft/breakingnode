@@ -1,0 +1,15 @@
+Lo primero. Usar usuario y password es una mala practica, por eso, se utiliza la menor cantidad de veces posible.
+
+Es posible siempre ? NO. Ejemplo: Regulacion de BCRA. Dice que se debe autenticar con usuario y password.
+
+Cuando es posible, el usuario se autentica, y a cambio recibe un token. lskdjfrlgrlgrlgirjgrligj
+Utilizando ese token para cada consulta que hace contra el servidor. **********************************
+
+
+
+Otra cosa. La password se guarda encriptada.************************
+
+SERIA BUENO PARA LA CLASE SIGUIENTE QUE BUSQUEN CON QUE METODO SE GUARDAN LAS CLAVES ENCRIPTADAS
+
+
+
