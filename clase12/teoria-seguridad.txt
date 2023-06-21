@@ -1,0 +1,49 @@
+Lo primero. Usar usuario y password es una mala practica, por eso, se utiliza la menor cantidad de veces posible.
+
+Es posible siempre ? NO. Ejemplo: Regulacion de BCRA. Dice que se debe autenticar con usuario y password.
+
+Cuando es posible, el usuario se autentica, y a cambio recibe un token. lskdjfrlgrlgrlgirjgrligj
+Utilizando ese token para cada consulta que hace contra el servidor. **********************************
+
+
+
+Otra cosa. La password se guarda encriptada.************************
+
+SERIA BUENO PARA LA CLASE SIGUIENTE QUE BUSQUEN CON QUE METODO SE GUARDAN LAS CLAVES ENCRIPTADAS
+
+
+
+
+
+Tres mecanismos de encriptacion.
+
+Simetrico   encripto una cadena de caracteres con una clave y un algoritmo .......................... des-encripto con la misma clave
+---------
+
+"HOLA"  "ABC"  "LSKDJALSKDJALSKDJALSKDJ"  ----------------- RED ----------------------- "ABC" "HOLA"
+
+---------------------------- SOLDADO  LIBRO 
+---------------------------- GENERAL LIBRO    Fecha y codigo
+
+3000 Años.
+
+Como se distribuye la clave...
+
+
+En 1970 se crea la encriptación asimetrica
+
+Una clave publica, y una clave privada. Reparto la clave publica, todos pueden encriptar con la clave publica y yo solo puedo des-encriptar
+con la clave privada.
+
+
+
+
+
+
+
+
+
+
+
+
+
