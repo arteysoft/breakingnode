@@ -32,18 +32,7 @@ Como se distribuye la clave...
 
 En 1970 se crea la encriptación asimetrica
 
-Una clave publica, y una clave privada. Reparto la clave publica, todos pueden encriptar con la clave publica y yo solo puedo des-encriptar
-con la clave privada.
+Una clave publica, y una clave privada
 
-
-
-
-
-
-
-
-
-
-
-
+El propietario de las claves, distribuye la clave publica, y se guarda la clave privada.
 

@@ -10,6 +10,7 @@ import {consultarTableNumerosPrimos} from './lib/manejadorSQL'
 import levantarArchivos from './app/levantarArchivos'
 import {contar} from './ejercicios/omar/collatz1'
 import {pruebaMongo} from './app/pruebaMongo'
+import pruebaPasswords from './app/pruebaPasswords'
 
 switch (process.argv[2]) {
     case 'creararchivos':
@@ -39,6 +40,9 @@ switch (process.argv[2]) {
         break
     case 'pruebamongo':
         pruebaMongo()
+        break
+    case 'pruebapasswords':
+        pruebaPasswords()
         break
     default:
         console.log('Atencion, se debe enviar un parametro con la accion a seguir')
