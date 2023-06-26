@@ -13,8 +13,6 @@ export default () => {
     let app = express()
 
     app.use(express.json());
-    app.use(horaMiddleware)
-    app.use('/hola', clienteRouter)
     app.use('/login', loginMiddleware)
     app.use((request, response, next) => {
         console.log('ACA REALIZO UNA CONFIGURACION ...')
