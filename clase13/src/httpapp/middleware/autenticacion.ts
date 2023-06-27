@@ -6,6 +6,13 @@ export default () => (request, response, next) => {
         response.status(401).send()
         return
     }
+
+    /*
+        ACA HAY QUE HACER LO MISMO QUE HICIMOS EN CLASE ************************** 2023 06 26
+    */
+
+    
+
     if (request.headers['x-token'] === 'teMandoElToken') {
         next()
         return

@@ -1,6 +1,6 @@
 import sha256 from 'sha256'
 import {v4 as uuid} from 'uuid'
-import {crearUsuario, validarUsuario, crearToken} from '../lib/manejadorSQLUsuarios'
+import {crearUsuario, validarUsuario, crearToken, validarToken} from '../lib/manejadorSQLUsuarios'
 
 export default async () => {
 
@@ -20,11 +20,22 @@ export default async () => {
     .catch(err => console.log(err))
     */
 
+    let token:String = ''
+
     try {
         await validarUsuario('valtery', 'Mercedes77')
-        let token = 'unToken__' + uuid()
+        token = 'unToken__' + uuid()
         console.log(token)
         await crearToken('valtery', token)
+
+    }
+    catch (err) {
+        console.log(err)
+    }
+
+    try {
+        let usuario = await validarToken(token)
+        console.log(usuario)
     }
     catch (err) {
         console.log(err)

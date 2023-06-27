@@ -46,73 +46,15 @@ export let crearToken = async (usuario, token) => {
     await cerrarConexion(connection)
 }
 
-export let validarToken = () => {
-
-}
-
-export let consultarTableNumerosPrimos = onFinish => {
+export let validarToken = async (token) => {
     let connection = crearConexion()
+    await connect(connection)
+    let resultSet:any = await query(connection, 'SELECT * FROM usuarios where token = ? ', [token])
 
-    connection.connect(err => {
-        if (err) {
-            onFinish(err)
-            return
-        }
-    
-        connection.query('SELECT fecha, numero FROM numerosprimos ', (err, results, fields) => {
-            if (err) {
-                onFinish(err)
-                return
-            }
-            
-            connection.end(err => {
-                if (err) {
-                    onFinish(err)
-                    return
-                }
-                onFinish(null, results)
-            })
-        })
-    })
+    if (resultSet.length === 0) {
+        throw new Error('NO EXISTE ESE TOKEN')
+    }
+    await cerrarConexion(connection)
+    return resultSet[0]
 }
-
-export let insertarNumeroPrimoSQL = (nuevoNumero, onFinish) => {
-
-    setTimeout(() => {
-        onFinish(null)
-    }, 30)
-
-    let connection = todoElDriver.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'breakingnode'
-    })
-
-    console.log('connect', nuevoNumero)
-    connection.connect(err => {
-        if (err) {
-            onFinish(err)
-            return
-        }
-    
-        console.log('query', nuevoNumero)
-        connection.query('INSERT INTO numerosprimos (fecha, numero) VALUES (CURRENT_TIMESTAMP(), ?)', nuevoNumero, err => {
-            if (err) {
-                onFinish(err)
-                return
-            }
-            console.log('end', nuevoNumero)
-            connection.end(err => {
-                console.log('termina el callback de end', nuevoNumero)
-                if (err) {
-                    onFinish(err)
-                    return
-                }
-                onFinish(null)
-            })
-        })
-    })
-}
-
 

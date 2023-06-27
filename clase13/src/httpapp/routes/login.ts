@@ -14,8 +14,9 @@ export default express.Router()
         // evaluar el body 
         console.log(request.body)
 
-        // request.body.usuario con eso hago una busqueda en MySQL
-        // request.body.password lo que explicamos en pruebaPasswords
+        /*
+        ACA HAY QUE HACER LO MISMO QUE HICIMOS EN CLASE ************************** 2023 06 26
+        */
 
         response.status(200).send({token: uuid()})
     })
