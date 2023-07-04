@@ -1,0 +1,14 @@
+Cuando se valida el token ? No hay que retornar al cliente el suscriber.
+Ahora bien, en otras partes de express, NO lo tenemos
+Supongamos que tenemos para el suscriber 1234 puede ver solo los clientes en mongo que tienen un mayorista 1234
+Ahora bien, si el suscriber tiene un rol de supervisor puede ver todo
+
+
+Hacer todo el ciclo de login con Mongo
+
+
+En el index.ts agregar una entrada que sea serverbasico
+le paso como parametro en que puerto va a trabajar
+Cuando le hago un get a ese puerto, me retorna soy el servidor del puerto zzzzz
+Balanceo de carga y vamos a ver un software que se llama haproxy
+
