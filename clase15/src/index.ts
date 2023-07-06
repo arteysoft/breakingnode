@@ -14,6 +14,7 @@ import pruebaPasswords from './app/pruebaPasswords'
 import {crearJWT} from './lib/jwt/creador'
 import {verificarToken} from './lib/jwt/verificador'
 import { leerToken } from './lib/jwt/sololectura'
+import servidorsito from './httpapp/servidorsito'
 
 switch (process.argv[2]) {
     case 'creararchivos':
@@ -55,6 +56,9 @@ switch (process.argv[2]) {
         break
     case 'leerjwt':
         leerToken(process.argv[3])
+        break
+    case 'servidorsito':
+        servidorsito(parseInt(process.argv[3]))
         break
     default:
         console.log('Atencion, se debe enviar un parametro con la accion a seguir')
