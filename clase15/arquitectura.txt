@@ -1,0 +1,9 @@
+Arquitectura
+
+1) 3 instancias de servidorsito en los puertos 3001, 3002, 3003. En background.
+2) haproxy para balancear la carga entre los puertos activos
+3) mysql lo vamos a instalar a traves de docker
+4) mongodb lo vamos a instalar a traves de docker
+5) proxy reverso o api gateway con nginx
+6) redis a traves de docker
+

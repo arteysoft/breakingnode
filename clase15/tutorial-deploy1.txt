@@ -25,3 +25,4 @@ nano .bashrc
 
 export PATH=$PATH:/opt/node-v18.16.1-linux-x64/bin
 
+systemctl stop ufw.service
