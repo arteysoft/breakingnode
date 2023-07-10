@@ -1,7 +1,6 @@
 import {MongoClient} from 'mongodb'
 
 const NOMBRE_BASE_DE_DATOS = process.env.NOMBRE_BASE_DE_DATOS
-console.log(NOMBRE_BASE_DE_DATOS)
 
 export let insertOne = async (nombreColeccion, documento) => {
     const url = 'mongodb://0.0.0.0:27017'
