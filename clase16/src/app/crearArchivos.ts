@@ -9,7 +9,7 @@ let fnGrabar = (iteracion:number) => {
     let usu:Usuario = genUsuario()
     console.log(usu)
 
-    if (iteracion > 9) {
+    if (iteracion > 10000) {
         return
     }
 

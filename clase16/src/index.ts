@@ -9,7 +9,7 @@ import clienteHTTP from './httpcliente/index'
 import {consultarTableNumerosPrimos} from './lib/manejadorSQL'
 import levantarArchivos from './app/levantarArchivos'
 import {contar} from './ejercicios/omar/collatz1'
-import {pruebaMongo} from './app/pruebaMongo'
+import {pruebaMongo, levantarArchivos as levantarArchivosMongo} from './app/pruebaMongo'
 import pruebaPasswords from './app/pruebaPasswords'
 import {crearJWT} from './lib/jwt/creador'
 import {verificarToken} from './lib/jwt/verificador'
@@ -38,6 +38,9 @@ switch (process.argv[2]) {
         break
     case 'levantararchivos':
         levantarArchivos()
+        break
+    case 'levantararchivosmongo':
+        levantarArchivosMongo()
         break
     case 'collatz':
         contar(7)

@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------------------------------------
 Pasos para hacer el deploy
 --------------------------------------------------------------------------------------------------------------
+crear la maquina virtual
 
-ssh -i breakingnode root@165.22.88.23
+ssh -i breakingnode root@143.110.211.130
 
 crear una carpeta de descargas
 
@@ -26,3 +27,58 @@ nano .bashrc
 export PATH=$PATH:/opt/node-v18.16.1-linux-x64/bin
 
 systemctl stop ufw.service
+
+git clone --depth=1 https://github.com/arteysoft/breakingnode.git
+
+cd breakingnode
+cd clase16
+
+npm install
+
+npm install -g typescript
+
+tsc // para compilar
+
+node build/index.js servidorsito PORT
+
+mkdir logs
+
+node build/index.js servidorsito 3001 > uno &
+node build/index.js servidorsito 3002 > dos &
+node build/index.js servidorsito 3001 > tres &
+
+creamos otro droplet
+
+apagamos el firewall
+systemctl stop ufw.service
+
+apt update
+
+apt install haproxy
+
+en el archivo /etc/haproxy/haproxy.cfg esta la configuracion del balanceador
+
+para bajar el archivo o copiarlo
+
+scp -i /var/breakingnode/breakingnode root@159.203.9.0:/etc/haproxy/haproxy.cfg .
+
+insertamos esta configuracion acorde a nuestras ip
+
+        frontend web-frontend
+            bind 159.89.127.109:80            ******* IP MAQUINA DONDE ESTA EL HAPROXY
+            default_backend web-backend
+
+        backend web-backend
+            balance roundrobin
+            server web-server1 159.203.9.0:3001 check
+            server web-server2 159.203.9.0:3002 check
+            server web-server3 159.203.9.0:3003 check
+
+luego de modificar el archivo, ya sea en la nube con el nano o en windows
+como aca.
+
+lo subimos:
+
+scp -i /var/breakingnode/breakingnode haproxy.cfg root@159.89.127.109:/etc/haproxy/haproxy.cfg
+
+
