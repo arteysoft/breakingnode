@@ -1,6 +1,9 @@
 import fs from 'fs/promises'
 import genUsuario from '../lib/genusuario'
 import {insertOne} from '../lib/driverMongo'
+import createLog from '../cfg/logger'
+
+let log = createLog('pruebaMongo')
 
 /*
 export let pruebaMongo = () => {
@@ -57,3 +60,10 @@ export let levantarArchivos = async () => {
     }
 }
 
+export let genClientesRandom = async () => {
+    for (let idx=0; idx < 20; idx++) {
+        let cliente = genUsuario()
+        log.info('generando cliente random e insertando en mongo: ' + idx)
+        await insertOne('clientes', cliente)
+    }
+}

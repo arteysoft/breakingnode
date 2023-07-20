@@ -9,7 +9,7 @@ import clienteHTTP from './httpcliente/index'
 import {consultarTableNumerosPrimos} from './lib/manejadorSQL'
 import levantarArchivos from './app/levantarArchivos'
 import {contar} from './ejercicios/omar/collatz1'
-import {pruebaMongo, levantarArchivos as levantarArchivosMongo} from './app/pruebaMongo'
+import {pruebaMongo, levantarArchivos as levantarArchivosMongo, genClientesRandom} from './app/pruebaMongo'
 import pruebaPasswords from './app/pruebaPasswords'
 import {crearJWT} from './lib/jwt/creador'
 import {verificarToken} from './lib/jwt/verificador'
@@ -71,6 +71,9 @@ switch (process.argv[2]) {
         break
     case 'pruebalog':
         pruebaLogger()
+        break
+    case 'crearclientesmongo':
+        genClientesRandom()
         break
     default:
         console.log('Atencion, se debe enviar un parametro con la accion a seguir')
