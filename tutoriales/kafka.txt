@@ -1,0 +1,32 @@
+Apache kafka
+
+Bajar en formato tar
+
+Tener java 8, 11, 16
+
+https://kafka.apache.org/
+
+Dejar en /opt el zip que se bajan
+
+Primero levantar el zookeeper
+
+cd /opt/kafka_2.12-3.3.2/bin/windows
+
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+Levantar el kafka server
+
+cd /opt/kafka_2.12-3.3.2/bin/windows
+
+kafka-server-start.bat ..\..\config\server.properties
+
+Listar los topicos
+kafka-topics.bat  --bootstrap-server 127.0.0.1:9092 --list
+
+crear/borrar los topicos
+
+kafka-topics.bat  --bootstrap-server 127.0.0.1:9092 --create --topic numeros
+                                                         --delete
+
+kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --offset 180 --partition 0  --topic numeros
+kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --from-beginning --partition 0  --topic data-transito
