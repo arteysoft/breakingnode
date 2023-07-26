@@ -80,6 +80,7 @@ switch (process.argv[2]) {
         break
     case 'producer':
         producirNumeros()
+        break;
     case 'consumer':
         initConsumer()
         break

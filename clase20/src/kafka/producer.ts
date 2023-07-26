@@ -11,7 +11,7 @@ export async function producer(objPersist) {
     
     await producer.connect()
     await producer.send({
-        topic: 'data-transito',
+        topic: <string>process.env.TOPICO_DEFAULT,
         messages: [{ value: JSON.stringify(objPersist) }]
     })
     await producer.disconnect()
@@ -19,6 +19,7 @@ export async function producer(objPersist) {
 
 export let producirNumeros = async () => {
     for (let x = 1; x < 10000; x++) {
+        console.log(['----', x, '----'])
         await producer({num: x})
     }
 }

@@ -13,7 +13,7 @@ let doTime = t => new Promise((r) => { setTimeout(r, t); })
 async function consumer() {
     const consumer = kafka.consumer({ groupId: 'grupo-1' })
     await consumer.connect()
-    await consumer.subscribe({ topic: 'data-transito', fromBeginning: true })
+    await consumer.subscribe({ topic: <string>process.env.TOPICO_DEFAULT, fromBeginning: true })
     await consumer.run({
         eachMessage: async ({ topic, partition, message, heartbeat, pause }) => {
             console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
