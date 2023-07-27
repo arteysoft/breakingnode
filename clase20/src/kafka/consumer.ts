@@ -1,4 +1,5 @@
 import {Kafka, Partitioners, TopicPartition} from 'kafkajs'
+import {insertOne, query, updateOne, deleteOne} from '../lib/driverMongo'
 
 let seq = 1
 
@@ -28,6 +29,7 @@ async function consumer() {
                 let hb = heartbeat
                 let resume = pause()
                 console.log('Haciendo tiempo')
+                await insertOne('alumnos_de_kafka', objRecieved)
                 console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
                 await doTime(500)
                 resume()

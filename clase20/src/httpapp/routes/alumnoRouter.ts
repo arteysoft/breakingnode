@@ -1,12 +1,12 @@
 import express from 'express'
 import genUsuario from '../../lib/genusuario'
 import {insertOne, query, updateOne, deleteOne} from '../../lib/driverMongo'
+import {encolar} from '../../kafka/producer'
 
 const NOMBRE_COLECCION = 'alumnos'
 
 export default express.Router()
     .use('/', (request, response, next) => {
-        console.log('Este middleware es exclusivo de la ruta /alumno')
         next()
     })
     .get('/inventar', (request, response) => {
@@ -45,6 +45,7 @@ export default express.Router()
         })
     })
     .post('', (request, response) => {
+        /*
         console.log(request.body)
         insertOne(NOMBRE_COLECCION, request.body)
             .then(() => {
@@ -53,6 +54,15 @@ export default express.Router()
             .catch(() => {
                 response.status(500).send()
             })
+        */
+       encolar(request.body)
+        .then(() => {
+            response.status(201).send()
+        })
+        .catch(() => {
+            response.status(500).send()
+        })
+            
     })
     .put('/:id', async (request, response) => {
         let id = request.params.id

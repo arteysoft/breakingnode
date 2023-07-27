@@ -24,4 +24,7 @@ export let producirNumeros = async () => {
     }
 }
 
+export let encolar = async (obj) => {
+    await producer(obj)
+}
 

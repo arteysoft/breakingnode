@@ -37,9 +37,7 @@ switch (process.argv[2]) {
         serverHTTP()
         break
     case 'cliente':
-        clienteHTTP(z => {
-            console.log(z)
-        })        
+        clienteHTTP()
         break
     case 'levantararchivos':
         levantarArchivos()
